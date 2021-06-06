@@ -1,28 +1,30 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect } from 'react'
 
 function useInterval(
   fn: () => void,
   delay: number | null | undefined,
   option?: {
-    immediate?: boolean;
+    immediate?: boolean
   }
 ): void {
-  const immediate = option?.immediate;
-  const fnRef = useRef<() => void>();
-  fnRef.current = fn;
+  const immediate = option?.immediate
+  const fnRef = useRef<() => void>()
+  fnRef.current = fn
 
   useEffect(() => {
-    if (delay === undefined || delay === null) return;
+    if (delay === undefined || delay === null) return
     if (immediate) {
-      fnRef.current?.();
+      console.log(111)
+      fnRef.current?.()
     }
+    console.log(111)
     const timer = setInterval(() => {
-      fnRef.current?.();
-    }, delay);
+      fnRef.current?.()
+    }, delay)
     return () => {
-      clearInterval(timer);
-    };
-  }, [delay]);
+      clearInterval(timer)
+    }
+  }, [delay])
 }
 
-export default useInterval;
+export default useInterval
