@@ -28,6 +28,7 @@ function useSize(target): Size {
       resizeObserver.disconnect()
     }
   }, [target])
+
   return state
 }
 
